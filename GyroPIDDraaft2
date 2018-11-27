@@ -2,7 +2,7 @@
 
 void setUp(){
     Gyroscope.startCalibration();
-    vex::task::sleep(3000);
+    vex::task::sleep(3000); // the 3000ms, or 3 seconds, is needed here in order for the gyroscope to calibrate correctly.
 }
 /*
  *PID Gyroscope Code (Draft #3)
@@ -20,11 +20,11 @@ void GyroTurn(double deg){
 
     double goal = deg + org;
     
-    double pGain = 0.6591818181818182 * 0.6;
+    double pGain = 0.6591818181818182 * 0.6; //the critical gain value was found, and is multiplied here by certain values to do.......?
     double iGain = 0.6591818181818182 * 0.5;
     double dGain = 0.6591818181818182 * 0.125;
     
-    double error = goal - current;
+    double error = goal - current; //determines how far the bot have to travel to reach the target or goal
     double errorSum = 0.0;
     double oldError = 0.0;
     
@@ -33,13 +33,13 @@ void GyroTurn(double deg){
     int counter = 0;
     
     int i = 0;
-    Brain.resetTimer();
+    Brain.resetTimer(); // resets the timer inside the brain so that it starts at zero for when it captures the values used to calculate critical gain.
     double oldSpeed = 0.0;
     
     
-    while(error > 0.0){
+    while(error > 0.0){ //this code is performed only when the bot has not reached its target.
         gyroVal = (Gyroscope.value(vex::analogUnits::range12bit));
-        //Brain.Screen.printAt(1, 30, "%f", gyroVal);
+        //Brain.Screen.printAt(1, 30, "%f", gyroVal); this code is not used, and is commented out.
         current = gyroVal - org;
         error = goal - current;
         errorSum += (error);
@@ -51,7 +51,7 @@ void GyroTurn(double deg){
         
         double motorSpeed = ((error*pGain) + ((1.0/errorSum)*(iGain)) + (change*dGain));
        
-        RightChassis.spin(vex::directionType::rev, motorSpeed, vex::velocityUnits::rpm);
+        RightChassis.spin(vex::directionType::rev, motorSpeed, vex::velocityUnits::rpm); //starts the motot\rs
         LeftChassis.spin(vex::directionType::fwd, motorSpeed,vex::velocityUnits::rpm);
         
         oldError = error;
@@ -77,14 +77,14 @@ void GyroTurn(double deg){
         if(counter % 2 == 0 && counter > 1){
             double currentTime = (Brain.timer(vex::timeUnits::sec));
             int add = (i-1)*10;      
-            Brain.Screen.printAt(1,30 + add, true, "%f", currentTime); 
-            Brain.resetTimer();
+            Brain.Screen.printAt(1,30 + add, true, "%f", currentTime); //prints the time between oscilations
+            Brain.resetTimer(); //resets the timer for the next oscilation
         }
         oldSpeed = motorSpeed;
         i++;
         
         
-        vex::task::sleep(30);
+        vex::task::sleep(30); //stops the bot for 30 milliseconds
     }
     
     LeftChassis.stop(vex::brakeType::brake);
@@ -93,5 +93,5 @@ void GyroTurn(double deg){
 
 int main() {
     setUp();
-    GyroTurn(180.0);
+    GyroTurn(180.0); //this starts the pid with the target being a 180 degree turn
 }
