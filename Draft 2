@@ -9,7 +9,7 @@
 //PID FWD & REV Chassis Movement
 void PIDLift(double dist)
 {
-    RightLift.resetRotation();
+    RightLift.resetRotation(); //sets the encoder values of the motors to zero.
     LeftLift.resetRotation();
 
     double goal = (720*dist)/(0.7*M_PI);
@@ -37,7 +37,7 @@ void PIDLift(double dist)
        
         double change = error - oldError;
         
-        double difference = RightChassis.rotation(vex::rotationUnits::deg) - LeftChassis.rotation(vex::rotationUnits::deg);
+        double difference = RightChassis.rotation(vex::rotationUnits::deg) - LeftChassis.rotation(vex::rotationUnits::deg); 
         double motorSpeed = (error*pGain) + ((1.0/errorSum)*(iGain)) + (change*dGain);
         if(motorSpeed <= 30.0){
             motorSpeed = 30.0;
@@ -69,7 +69,7 @@ void PIDLift(double dist)
         {
             double currentTime = (Brain.timer(vex::timeUnits::sec));
             int add = (i-1)*10;      
-            Brain.Screen.printAt(1,30 + add, true, "%f", currentTime); 
+            Brain.Screen.printAt(1,30 + add, true, "%f", currentTime); //prints the amount of time the bot moved for while oscilating if it oscilates. It prints the time between intervals when it reaches the target, regardless of whether or not it stays there.
             Brain.resetTimer();
         }
         oldSpeed = motorSpeed;
@@ -78,9 +78,9 @@ void PIDLift(double dist)
         vex::task::sleep(30);
     }
     
-    LeftLift.stop(vex::brakeType::brake);
+    LeftLift.stop(vex::brakeType::brake); //this stops the bot once it has reached its target.
     RightLift.stop(vex::brakeType::brake);
     
-    RightLift.resetRotation();
+    RightLift.resetRotation(); //encoder values are set to zero.
     LeftLift.resetRotation();
 }
