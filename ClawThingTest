@@ -1,0 +1,28 @@
+#include "robot-config.h"
+          
+
+int main() {
+    int count = 0; //this variable is used to determine which way the motor has to spin. If it is 1, it spins in the reverse direction. If it is 0, it spins in the forward direction.
+    while(true)
+    {
+        if(Controller.ButtonY.pressing()) //constantly check to see if Y is being pressed
+        {
+            if(count == 0)
+            {
+                Motor.spin(vex::directionType::fwd,100,vex::velocityUnits::rpm); //spins the motor for a desired amount of time to move the claw 180 degrees
+                vex::task::sleep(200);
+                Motor.stop;
+                count +=1; //adds one to the count, which is used to determine which direction the motor spins
+            }
+            else if(count == 1)
+            {
+                Motor.spin(vex::directionType::rev,100,vex::velocityUnits::rpm); //WALUIGI FOR SMASH
+                vex::task::sleep(200);
+                Motor.stop;
+                count +=1;
+            }
+            
+        }
+    }
+
+}
