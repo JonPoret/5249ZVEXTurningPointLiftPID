@@ -71,7 +71,8 @@ int main() {
             Brain.Screen.setPenColor(vex::color::white);
             Brain.Screen.setFont(vex::fontType::mono30);
             Brain.Screen.print("Close Red Selected");
-            break;
+            xpos = 0;
+            ypos = 0;
         }
         if(xpos > 130 && xpos < 230 && ypos > 20 && ypos < 120)
         {
@@ -81,7 +82,8 @@ int main() {
             Brain.Screen.setPenColor(vex::color::white);
             Brain.Screen.setFont(vex::fontType::mono30);
             Brain.Screen.print("Far Red Selected");
-            break;
+            xpos= 0;
+            ypos = 0;
         }
         if(xpos > 20 && xpos < 120 && ypos > 130 && ypos < 230)
         {
@@ -91,7 +93,8 @@ int main() {
             Brain.Screen.setPenColor(vex::color::white);
             Brain.Screen.setFont(vex::fontType::mono30);
             Brain.Screen.print("Far Blue Selected");
-            break;
+            xpos = 0;
+            ypos = 0;
         }
         if(xpos > 130 && xpos < 230 && ypos > 130 && ypos < 230)
         {
@@ -101,7 +104,8 @@ int main() {
             Brain.Screen.setPenColor(vex::color::white);
             Brain.Screen.setFont(vex::fontType::mono30);
             Brain.Screen.print("Close Blue Selected");
-            break;
+            xpos = 0;
+            ypos = 0;
         }
          if(xpos > 350 && xpos < 450 && ypos > 20 && ypos < 120)
         {
@@ -111,7 +115,8 @@ int main() {
             Brain.Screen.setPenColor(vex::color::white);
             Brain.Screen.setFont(vex::fontType::mono30);
             Brain.Screen.print("Skills Selected");
-            break;
+            xpos = 0;
+            ypos = 0;
         }
         
     }
