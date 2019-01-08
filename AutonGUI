@@ -1,0 +1,56 @@
+#include "robot-config.h"
+          
+//robot red = 0
+//robot blue = 225
+int main() {
+    Brain.Screen.clearScreen();
+    Brain.Screen.setFillColor(0);
+    Brain.Screen.setPenColor(vex::color::white);
+    Brain.Screen.setPenWidth(3);
+    Brain.Screen.drawRectangle(20,20,100,100);
+    Brain.Screen.setFillColor(225);
+    Brain.Screen.setPenColor(vex::color::white);
+    Brain.Screen.setPenWidth(3);
+    Brain.Screen.drawRectangle(20,130,100,100);
+    Brain.Screen.setFillColor(0);
+    Brain.Screen.setPenColor(vex::color::white);
+    Brain.Screen.setPenWidth(3);
+    Brain.Screen.drawRectangle(130,20,100,100);
+    Brain.Screen.setFillColor(225);
+    Brain.Screen.setPenColor(vex::color::white);
+    Brain.Screen.setPenWidth(3);
+    Brain.Screen.drawRectangle(130,130,100,100);
+    Brain.Screen.setFillColor(0);
+    Brain.Screen.setPenColor(vex::color::white);
+    Brain.Screen.setPenWidth(3);
+    Brain.Screen.setFillColor(225);
+    Brain.Screen.setPenColor(vex::color::white);
+    Brain.Screen.setPenWidth(3);
+    Brain.Screen.setFillColor(vex::color::orange);
+    Brain.Screen.drawRectangle(350,20,100,100);
+    Brain.Screen.setFillColor(vex::color::purple);
+    Brain.Screen.drawRectangle(350,130,100,100);
+   
+    //create text for first button
+    Brain.Screen.setFillColor(vex::color::red);
+    Brain.Screen.printAt(35,60,"RedClose");
+    //create text for second button
+    Brain.Screen.setFillColor(vex::color::red);
+    Brain.Screen.printAt(150,60,"RedFar");
+    //create text for third button
+    Brain.Screen.setFillColor(vex::color::blue);
+    Brain.Screen.printAt(135,170,"BlueClose");
+    //create text for fourth button
+    Brain.Screen.setFillColor(vex::color::blue);
+    Brain.Screen.printAt(30,170,"BlueFar");
+    
+    //create skills text
+    Brain.Screen.setFillColor(vex::color::orange);
+    Brain.Screen.printAt(370,60,"Skills");
+    
+    //create cancel text
+    Brain.Screen.setFillColor(vex::color::purple);
+    Brain.Screen.printAt(370,170,"Cancel");
+
+
+}
