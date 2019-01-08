@@ -1,5 +1,6 @@
 #include "robot-config.h"
           
+bool check = true;
 //robot red = 0
 //robot blue = 225
 int main() {
@@ -51,6 +52,69 @@ int main() {
     //create cancel text
     Brain.Screen.setFillColor(vex::color::purple);
     Brain.Screen.printAt(370,170,"Cancel");
+    
+    int xpos;
+    int ypos;
+    while(1)
+    {
+        if(Brain.Screen.pressing())
+        {
+            xpos = Brain.Screen.xPosition();
+            ypos = Brain.Screen.yPosition();
+        }
+        
+        if(xpos > 20 && xpos < 120 && ypos > 20 && ypos < 120)
+        {
+            Brain.Screen.setFillColor(vex::color::black);
+            Brain.Screen.setPenColor(vex::color::black);
+            Brain.Screen.drawRectangle(20,20,300,300);
+            Brain.Screen.setPenColor(vex::color::white);
+            Brain.Screen.setFont(vex::fontType::mono30);
+            Brain.Screen.print("Close Red Selected");
+            break;
+        }
+        if(xpos > 130 && xpos < 230 && ypos > 20 && ypos < 120)
+        {
+            Brain.Screen.setFillColor(vex::color::black);
+            Brain.Screen.setPenColor(vex::color::black);
+            Brain.Screen.drawRectangle(20,20,300,300);
+            Brain.Screen.setPenColor(vex::color::white);
+            Brain.Screen.setFont(vex::fontType::mono30);
+            Brain.Screen.print("Far Red Selected");
+            break;
+        }
+        if(xpos > 20 && xpos < 120 && ypos > 130 && ypos < 230)
+        {
+            Brain.Screen.setFillColor(vex::color::black);
+            Brain.Screen.setPenColor(vex::color::black);
+            Brain.Screen.drawRectangle(20,20,300,300);
+            Brain.Screen.setPenColor(vex::color::white);
+            Brain.Screen.setFont(vex::fontType::mono30);
+            Brain.Screen.print("Far Blue Selected");
+            break;
+        }
+        if(xpos > 130 && xpos < 230 && ypos > 130 && ypos < 230)
+        {
+            Brain.Screen.setFillColor(vex::color::black);
+            Brain.Screen.setPenColor(vex::color::black);
+            Brain.Screen.drawRectangle(20,20,300,300);
+            Brain.Screen.setPenColor(vex::color::white);
+            Brain.Screen.setFont(vex::fontType::mono30);
+            Brain.Screen.print("Close Blue Selected");
+            break;
+        }
+         if(xpos > 350 && xpos < 450 && ypos > 20 && ypos < 120)
+        {
+            Brain.Screen.setFillColor(vex::color::black);
+            Brain.Screen.setPenColor(vex::color::black);
+            Brain.Screen.drawRectangle(20,20,300,300);
+            Brain.Screen.setPenColor(vex::color::white);
+            Brain.Screen.setFont(vex::fontType::mono30);
+            Brain.Screen.print("Skills Selected");
+            break;
+        }
+        
+    }
 
 
 }
