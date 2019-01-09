@@ -1,9 +1,8 @@
 #include "robot-config.h"
-          
-bool check = true;
-//robot red = 0
-//robot blue = 225
-int main() {
+ 
+
+void buildScreen() {
+    Brain.Screen.setFont(vex::fontType::mono20);
     Brain.Screen.clearScreen();
     Brain.Screen.setFillColor(0);
     Brain.Screen.setPenColor(vex::color::white);
@@ -52,11 +51,18 @@ int main() {
     //create cancel text
     Brain.Screen.setFillColor(vex::color::purple);
     Brain.Screen.printAt(370,170,"Cancel");
+    }
+bool check = true;
+//robot red = 0
+//robot blue = 225
+int main() {
+    buildScreen();
     
     int xpos;
     int ypos;
     while(1)
     {
+        Brain.Screen.clearLine();
         if(Brain.Screen.pressing())
         {
             xpos = Brain.Screen.xPosition();
@@ -73,12 +79,13 @@ int main() {
             Brain.Screen.print("Close Red Selected");
             xpos = 0;
             ypos = 0;
-            vex::task::sleep(500);
+            vex::task::sleep(5000);
             xpos = Brain.Screen.xPosition();
             ypos = Brain.Screen.yPosition();
             if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
             {
-                break;
+                Brain.Screen.clearScreen();
+                buildScreen();
             }
         }
         if(xpos > 130 && xpos < 230 && ypos > 20 && ypos < 120)
@@ -91,12 +98,14 @@ int main() {
             Brain.Screen.print("Far Red Selected");
             xpos= 0;
             ypos = 0;
-            vex::task::sleep(500);
+            vex::task::sleep(5000);
             xpos = Brain.Screen.xPosition();
             ypos = Brain.Screen.yPosition();
             if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
             {
-                break;
+                Brain.Screen.clearScreen();
+                buildScreen();
+                //break;
             }
         }
         if(xpos > 20 && xpos < 120 && ypos > 130 && ypos < 230)
@@ -109,12 +118,14 @@ int main() {
             Brain.Screen.print("Far Blue Selected");
             xpos = 0;
             ypos = 0;
-            vex::task::sleep(500);
+            vex::task::sleep(5000);
             xpos = Brain.Screen.xPosition();
             ypos = Brain.Screen.yPosition();
             if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
             {
-                break;
+                Brain.Screen.clearScreen();
+                buildScreen();
+                //break;
             }
         }
         if(xpos > 130 && xpos < 230 && ypos > 130 && ypos < 230)
@@ -127,12 +138,14 @@ int main() {
             Brain.Screen.print("Close Blue Selected");
             xpos = 0;
             ypos = 0;
-            vex::task::sleep(500);
+            vex::task::sleep(5000);
             xpos = Brain.Screen.xPosition();
             ypos = Brain.Screen.yPosition();
             if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
             {
-                break;
+                Brain.Screen.clearScreen();
+                buildScreen();
+                //break;
             }
         }
          if(xpos > 350 && xpos < 450 && ypos > 20 && ypos < 120)
@@ -145,16 +158,21 @@ int main() {
             Brain.Screen.print("Skills Selected");
             xpos = 0;
             ypos = 0;
-            vex::task::sleep(500);
+            vex::task::sleep(5000);
             xpos = Brain.Screen.xPosition();
             ypos = Brain.Screen.yPosition();
             if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
             {
-                break;
+                Brain.Screen.clearScreen();
+                buildScreen();
+                //break;
             }
         }
         
     }
+    
+    
 
 
 }
+
