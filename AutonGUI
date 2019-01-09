@@ -56,6 +56,7 @@ bool check = true;
 //robot red = 0
 //robot blue = 225
 int main() {
+    int selectedauton;
     buildScreen();
     
     int xpos;
@@ -86,7 +87,9 @@ int main() {
             {
                 Brain.Screen.clearScreen();
                 buildScreen();
+                selectedauton = 0;
             }
+            selectedauton = 1;
         }
         if(xpos > 130 && xpos < 230 && ypos > 20 && ypos < 120)
         {
@@ -105,8 +108,9 @@ int main() {
             {
                 Brain.Screen.clearScreen();
                 buildScreen();
-                //break;
+                selectedauton = 0;
             }
+            selectedauton = 2;
         }
         if(xpos > 20 && xpos < 120 && ypos > 130 && ypos < 230)
         {
@@ -125,8 +129,9 @@ int main() {
             {
                 Brain.Screen.clearScreen();
                 buildScreen();
-                //break;
+                selectedauton = 0;
             }
+            selectedauton = 3;
         }
         if(xpos > 130 && xpos < 230 && ypos > 130 && ypos < 230)
         {
@@ -145,8 +150,9 @@ int main() {
             {
                 Brain.Screen.clearScreen();
                 buildScreen();
-                //break;
+                selectedauton = 0;
             }
+            selectedauton = 4;
         }
          if(xpos > 350 && xpos < 450 && ypos > 20 && ypos < 120)
         {
@@ -165,8 +171,9 @@ int main() {
             {
                 Brain.Screen.clearScreen();
                 buildScreen();
-                //break;
+                selectedauton = 0;
             }
+            selectedauton = 5;
         }
         
     }
