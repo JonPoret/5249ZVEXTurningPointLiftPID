@@ -56,12 +56,12 @@ bool check = true;
 //robot red = 0
 //robot blue = 225
 int main() {
-    int selectedauton;
+    int selectedauton = 0;
     buildScreen();
     
     int xpos;
     int ypos;
-    while(1)
+    while(selectedauton == 0)
     {
         Brain.Screen.clearLine();
         if(Brain.Screen.pressing())
