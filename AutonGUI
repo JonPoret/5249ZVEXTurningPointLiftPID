@@ -73,6 +73,13 @@ int main() {
             Brain.Screen.print("Close Red Selected");
             xpos = 0;
             ypos = 0;
+            vex::task::sleep(500);
+            xpos = Brain.Screen.xPosition();
+            ypos = Brain.Screen.yPosition();
+            if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
+            {
+                break;
+            }
         }
         if(xpos > 130 && xpos < 230 && ypos > 20 && ypos < 120)
         {
@@ -84,6 +91,13 @@ int main() {
             Brain.Screen.print("Far Red Selected");
             xpos= 0;
             ypos = 0;
+            vex::task::sleep(500);
+            xpos = Brain.Screen.xPosition();
+            ypos = Brain.Screen.yPosition();
+            if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
+            {
+                break;
+            }
         }
         if(xpos > 20 && xpos < 120 && ypos > 130 && ypos < 230)
         {
@@ -95,6 +109,13 @@ int main() {
             Brain.Screen.print("Far Blue Selected");
             xpos = 0;
             ypos = 0;
+            vex::task::sleep(500);
+            xpos = Brain.Screen.xPosition();
+            ypos = Brain.Screen.yPosition();
+            if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
+            {
+                break;
+            }
         }
         if(xpos > 130 && xpos < 230 && ypos > 130 && ypos < 230)
         {
@@ -106,6 +127,13 @@ int main() {
             Brain.Screen.print("Close Blue Selected");
             xpos = 0;
             ypos = 0;
+            vex::task::sleep(500);
+            xpos = Brain.Screen.xPosition();
+            ypos = Brain.Screen.yPosition();
+            if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
+            {
+                break;
+            }
         }
          if(xpos > 350 && xpos < 450 && ypos > 20 && ypos < 120)
         {
@@ -117,6 +145,13 @@ int main() {
             Brain.Screen.print("Skills Selected");
             xpos = 0;
             ypos = 0;
+            vex::task::sleep(500);
+            xpos = Brain.Screen.xPosition();
+            ypos = Brain.Screen.yPosition();
+            if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
+            {
+                break;
+            }
         }
         
     }
