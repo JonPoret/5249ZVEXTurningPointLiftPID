@@ -53,8 +53,7 @@ void buildScreen() {
     Brain.Screen.printAt(370,170,"Cancel");
     }
 bool check = true;
-//robot red = 0
-//robot blue = 225
+//This is the main method where the program looks for user taps on the screen, and chooses an auton based on that, or if they dont, it stays on the selection screen.
 int main() {
     int selectedauton = 0;
     buildScreen();
