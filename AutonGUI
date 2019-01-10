@@ -1,6 +1,6 @@
 #include "robot-config.h"
  
-
+//this method is used to create all of the buttons that are seen on screen that are used to select the auton and to also go to skills.
 void buildScreen() {
     Brain.Screen.setFont(vex::fontType::mono20);
     Brain.Screen.clearScreen();
@@ -175,11 +175,5 @@ int main() {
             }
             selectedauton = 5;
         }
-        
     }
-    
-    
-
-
 }
-
