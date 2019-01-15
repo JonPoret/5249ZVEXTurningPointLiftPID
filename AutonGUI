@@ -39,10 +39,10 @@ void buildScreen() {
     Brain.Screen.printAt(150,60,"RedFar");
     //create text for third button
     Brain.Screen.setFillColor(vex::color::blue);
-    Brain.Screen.printAt(135,170,"BlueClose");
+    Brain.Screen.printAt(145,170,"BlueFar");
     //create text for fourth button
     Brain.Screen.setFillColor(vex::color::blue);
-    Brain.Screen.printAt(30,170,"BlueFar");
+    Brain.Screen.printAt(25,170,"BlueClose");
     
     //create skills text
     Brain.Screen.setFillColor(vex::color::orange);
@@ -118,27 +118,6 @@ int main() {
             Brain.Screen.drawRectangle(20,20,300,300);
             Brain.Screen.setPenColor(vex::color::white);
             Brain.Screen.setFont(vex::fontType::mono30);
-            Brain.Screen.print("Far Blue Selected");
-            xpos = 0;
-            ypos = 0;
-            vex::task::sleep(5000);
-            xpos = Brain.Screen.xPosition();
-            ypos = Brain.Screen.yPosition();
-            if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
-            {
-                Brain.Screen.clearScreen();
-                buildScreen();
-                selectedauton = 0;
-            }
-            selectedauton = 3;
-        }
-        if(xpos > 130 && xpos < 230 && ypos > 130 && ypos < 230)
-        {
-            Brain.Screen.setFillColor(vex::color::black);
-            Brain.Screen.setPenColor(vex::color::black);
-            Brain.Screen.drawRectangle(20,20,300,300);
-            Brain.Screen.setPenColor(vex::color::white);
-            Brain.Screen.setFont(vex::fontType::mono30);
             Brain.Screen.print("Close Blue Selected");
             xpos = 0;
             ypos = 0;
@@ -152,6 +131,27 @@ int main() {
                 selectedauton = 0;
             }
             selectedauton = 4;
+        }
+        if(xpos > 130 && xpos < 230 && ypos > 130 && ypos < 230)
+        {
+            Brain.Screen.setFillColor(vex::color::black);
+            Brain.Screen.setPenColor(vex::color::black);
+            Brain.Screen.drawRectangle(20,20,300,300);
+            Brain.Screen.setPenColor(vex::color::white);
+            Brain.Screen.setFont(vex::fontType::mono30);
+            Brain.Screen.print("Far Blue Selected");
+            xpos = 0;
+            ypos = 0;
+            vex::task::sleep(5000);
+            xpos = Brain.Screen.xPosition();
+            ypos = Brain.Screen.yPosition();
+            if(xpos > 350 && xpos < 450 && ypos > 130 && ypos < 230)
+            {
+                Brain.Screen.clearScreen();
+                buildScreen();
+                selectedauton = 0;
+            }
+            selectedauton = 3;
         }
          if(xpos > 350 && xpos < 450 && ypos > 20 && ypos < 120)
         {
