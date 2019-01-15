@@ -60,16 +60,17 @@ int main() {
     
     int xpos;
     int ypos;
-    while(selectedauton == 0)
+    while(selectedauton == 0) //while no auton is selected the code looks for the user to select an auton
     {
         Brain.Screen.clearLine();
         if(Brain.Screen.pressing())
         {
             xpos = Brain.Screen.xPosition();
             ypos = Brain.Screen.yPosition();
+            //This looks for the position on the screen that the user pressed in x and y values
         }
         
-        if(xpos > 20 && xpos < 120 && ypos > 20 && ypos < 120)
+        if(xpos > 20 && xpos < 120 && ypos > 20 && ypos < 120) //this looks to see if the user tapped within the confines of a certain button and selects an auton based on where they pressed
         {
             Brain.Screen.setFillColor(vex::color::black);
             Brain.Screen.setPenColor(vex::color::black);
