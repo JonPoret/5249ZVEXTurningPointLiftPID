@@ -1,0 +1,80 @@
+#include "robot-config.h"
+          
+void buildField()
+{
+    Brain.Screen.setPenColor(vex::color::white);
+    Brain.Screen.setFillColor(vex::color::white);
+    Brain.Screen.drawRectangle(260,20,200,200);
+    Brain.Screen.setFillColor(vex::color::blue);
+    Brain.Screen.drawRectangle(430,160,30,30);
+    Brain.Screen.drawRectangle(430,100,30,30);
+    Brain.Screen.setFillColor(vex::color::red);
+    Brain.Screen.drawRectangle(260,160,30,30);
+    Brain.Screen.drawRectangle(260,100,30,30);
+    Brain.Screen.setPenColor(vex::color::red);
+    Brain.Screen.setFillColor(vex::color::red);
+    Brain.Screen.setPenWidth(1);
+    Brain.Screen.drawRectangle(305,130,30,30);
+    Brain.Screen.setPenColor(vex::color::blue);
+    Brain.Screen.setFillColor(vex::color::blue);
+    Brain.Screen.drawRectangle(375,130,30,30);
+    Brain.Screen.setPenColor(vex::color::yellow);
+    Brain.Screen.setFillColor(vex::color::yellow);
+    Brain.Screen.drawRectangle(340,130,30,30);
+    Brain.Screen.setFillColor(vex::color::red);
+    Brain.Screen.setPenColor(vex::color::red);
+    Brain.Screen.setPenWidth(1);
+    Brain.Screen.drawCircle(320,175,8);
+    Brain.Screen.drawCircle(320,115,8);
+    Brain.Screen.drawCircle(390,205,8);
+    Brain.Screen.setPenColor(vex::color::blue);
+    Brain.Screen.setFillColor(vex::color::blue);
+    Brain.Screen.drawCircle(390,175,8);
+    Brain.Screen.drawCircle(320,205,8);
+    Brain.Screen.drawCircle(390,115,8);
+    Brain.Screen.setPenColor(vex::color::black);
+    Brain.Screen.setPenWidth(4);
+    Brain.Screen.setFillColor(vex::color::black);
+    Brain.Screen.drawLine(360,20,360,70);
+    Brain.Screen.drawLine(300,20,300,70);
+    Brain.Screen.drawLine(420,20,420,70);
+    Brain.Screen.setFillColor(vex::color::blue);
+    Brain.Screen.setPenColor(vex::color::blue);
+    Brain.Screen.drawRectangle(290,25,5,5);
+    Brain.Screen.drawRectangle(290,40,5,5);
+    Brain.Screen.drawRectangle(290,55,5,5);
+    Brain.Screen.drawRectangle(350,25,5,5);
+    Brain.Screen.drawRectangle(350,40,5,5);
+    Brain.Screen.drawRectangle(350,55,5,5);
+    Brain.Screen.setPenColor(vex::color::red);
+    Brain.Screen.setFillColor(vex::color::red);
+    Brain.Screen.drawRectangle(363,25,5,5);
+    Brain.Screen.drawRectangle(363,40,5,5);
+    Brain.Screen.drawRectangle(363,55,5,5);
+    Brain.Screen.drawRectangle(423,25,5,5);
+    Brain.Screen.drawRectangle(423,40,5,5);
+    Brain.Screen.drawRectangle(423,55,5,5);
+    
+}
+
+void buildButtons()
+{
+    Brain.Screen.setPenColor(vex::color::white);
+    Brain.Screen.setPenWidth(2);
+    Brain.Screen.setFillColor(vex::color::red);
+    Brain.Screen.drawRectangle(10,20,230,25);
+    Brain.Screen.drawRectangle(10,55,230,25);
+    Brain.Screen.setFillColor(vex::color::blue);
+    Brain.Screen.drawRectangle(10,90,230,25);
+    Brain.Screen.drawRectangle(10,125,230,25);
+    Brain.Screen.setFillColor(vex::color::orange);
+    Brain.Screen.drawRectangle(10,160,230,25);
+    Brain.Screen.setFillColor(vex::color::purple);
+    Brain.Screen.drawRectangle(10,195,230,25);
+    
+}
+
+int main() {
+    buildField();
+    buildButtons();
+}
