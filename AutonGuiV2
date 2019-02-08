@@ -572,15 +572,21 @@ void expermientalfinalproduct()
     buildoriginalscreen(120);
     Brain.Screen.setFillColor(vex::color::black);
     Brain.Screen.setPenWidth(0);
-    Brain.Screen.drawRectangle(0,0,2,240);
-    Brain.Screen.drawRectangle(0,0,2,240);
-    Brain.Screen.drawRectangle(0,0,2,240);
-    Brain.Screen.drawRectangle(0,0,2,240);
-    Brain.Screen.drawRectangle(0,0,2,240);
-    Brain.Screen.drawRectangle(0,0,2,240);
-    
-    
-}
+    Brain.Screen.drawRectangle(239,0,3,240);
+    Brain.Screen.drawRectangle(279,0,3,240);
+    Brain.Screen.drawRectangle(319,0,3,240);
+    Brain.Screen.drawRectangle(359,0,3,240);
+    Brain.Screen.drawRectangle(399,0,3,240);
+    Brain.Screen.drawRectangle(439,0,3,240);
+    Brain.Screen.drawRectangle(479,0,3,240);
+    Brain.Screen.drawRectangle(240,0,240,3);
+    Brain.Screen.drawRectangle(240,39,240,3);
+    Brain.Screen.drawRectangle(240,79,240,3);
+    Brain.Screen.drawRectangle(240,119,240,3);
+    Brain.Screen.drawRectangle(240,159,240,3);
+    Brain.Screen.drawRectangle(240,199,240,3);
+    Brain.Screen.drawRectangle(240,239,240,3);
+   
    
 }
 
