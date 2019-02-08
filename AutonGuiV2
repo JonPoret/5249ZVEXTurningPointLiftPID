@@ -1,126 +1,130 @@
 #include "robot-config.h"
-void buildoriginalscreen()     
+int redclosepicking = 0;
+int redfarpicking = 0;
+int blueclosepicking = 0;
+int bluefarpicking = 0;
+void buildoriginalscreen(int x)     
 {
     //builds half the screen as the board
     Brain.Screen.setFillColor("#7e7e7e");
     Brain.Screen.setPenWidth(0);
     Brain.Screen.setPenColor(vex::color::white);
-    Brain.Screen.drawRectangle(240,0,240,240);
+    Brain.Screen.drawRectangle(240-x,0,240,240);
     
     //Builds red starts squares
     Brain.Screen.setFillColor(vex::color::red);
-    Brain.Screen.drawRectangle(240,80,40,40);
-    Brain.Screen.drawRectangle(240,160,40,40);
+    Brain.Screen.drawRectangle(240-x,80,40,40);
+    Brain.Screen.drawRectangle(240-x,160,40,40);
     
     //Builds  blue start squares
     Brain.Screen.setFillColor(vex::color::blue);
-    Brain.Screen.drawRectangle(440,80,40,40);
-    Brain.Screen.drawRectangle(440,160,40,40);
+    Brain.Screen.drawRectangle(440-x,80,40,40);
+    Brain.Screen.drawRectangle(440-x,160,40,40);
     
     //Builds auton and lift EXTEND area lines
     Brain.Screen.setFillColor(vex::color::white);
     //Horizontal lines  
-    Brain.Screen.drawRectangle(240,119,40,2);
-    Brain.Screen.drawRectangle(440,119,40,2);
-    Brain.Screen.drawRectangle(280,199,160,2);
+    Brain.Screen.drawRectangle(240-x,119,40,2);
+    Brain.Screen.drawRectangle(440-x,119,40,2);
+    Brain.Screen.drawRectangle(280-x,199,160,2);
     //Vertical Lines
-    Brain.Screen.drawRectangle(356,0,2,240);
-    Brain.Screen.drawRectangle(362,0,2,240);
-    Brain.Screen.drawRectangle(279,120,2,80);
-    Brain.Screen.drawRectangle(439,120,2,80);
+    Brain.Screen.drawRectangle(356-x,0,2,240);
+    Brain.Screen.drawRectangle(362-x,0,2,240);
+    Brain.Screen.drawRectangle(279-x,120,2,80);
+    Brain.Screen.drawRectangle(439-x,120,2,80);
     
     //Builds flag poles
     Brain.Screen.setFillColor(vex::color::black);
-    Brain.Screen.drawRectangle(278,0,4,40);
-    Brain.Screen.drawRectangle(358,0,4,40);
-    Brain.Screen.drawRectangle(438,0,4,40);
+    Brain.Screen.drawRectangle(278-x,0,4,40);
+    Brain.Screen.drawRectangle(358-x,0,4,40);
+    Brain.Screen.drawRectangle(438-x,0,4,40);
     
     //Builds blue caps standing caps (with two balls)
     Brain.Screen.setFillColor(vex::color::blue);
     Brain.Screen.setPenWidth(1);
     Brain.Screen.setPenColor(vex::color::black);
-    Brain.Screen.drawCircle(300,60,8);
-    Brain.Screen.drawCircle(300,60,3);
-    Brain.Screen.drawCircle(340,220,8);
-    Brain.Screen.drawCircle(340,220,3);
+    Brain.Screen.drawCircle(300-x,60,8);
+    Brain.Screen.drawCircle(300-x,60,3);
+    Brain.Screen.drawCircle(340-x,220,8);
+    Brain.Screen.drawCircle(340-x,220,3);
         //the two balls on each of the caps
     Brain.Screen.setFillColor(vex::color::yellow);
-    Brain.Screen.drawCircle(296,55,2);
-    Brain.Screen.drawCircle(304,65,2);
-    Brain.Screen.drawCircle(340,225,2);
-    Brain.Screen.drawCircle(340,215,2);
+    Brain.Screen.drawCircle(296-x,55,2);
+    Brain.Screen.drawCircle(304-x,65,2);
+    Brain.Screen.drawCircle(340-x,225,2);
+    Brain.Screen.drawCircle(340-x,215,2);
     
     //Builds side blue caps
     Brain.Screen.setFillColor(vex::color::black);
-    Brain.Screen.drawCircle(380,100,6);
-    Brain.Screen.drawCircle(380,180,6);
+    Brain.Screen.drawCircle(380-x,100,6);
+    Brain.Screen.drawCircle(380-x,180,6);
     Brain.Screen.setFillColor(vex::color::blue);
-    Brain.Screen.drawCircle(377,100,6);
-    Brain.Screen.drawCircle(376,100,2);
-    Brain.Screen.drawCircle(377,180,6);
-    Brain.Screen.drawCircle(376,180,2);
+    Brain.Screen.drawCircle(377-x,100,6);
+    Brain.Screen.drawCircle(376-x,100,2);
+    Brain.Screen.drawCircle(377-x,180,6);
+    Brain.Screen.drawCircle(376-x,180,2);
     
     //Builds red caps standing caps (with two balls)
     Brain.Screen.setFillColor(vex::color::red);
     Brain.Screen.setPenColor(vex::color::black);
-    Brain.Screen.drawCircle(420,60,8);
-    Brain.Screen.drawCircle(420,60,4);
-    Brain.Screen.drawCircle(380,220,8);
-    Brain.Screen.drawCircle(380,220,4);
+    Brain.Screen.drawCircle(420-x,60,8);
+    Brain.Screen.drawCircle(420-x,60,4);
+    Brain.Screen.drawCircle(380-x,220,8);
+    Brain.Screen.drawCircle(380-x,220,4);
             //the two balls on each of the caps
     Brain.Screen.setFillColor(vex::color::yellow);
-    Brain.Screen.drawCircle(424,55,2);
-    Brain.Screen.drawCircle(416,65,2);
-    Brain.Screen.drawCircle(380,225,2);
-    Brain.Screen.drawCircle(380,215,2);
+    Brain.Screen.drawCircle(424-x,55,2);
+    Brain.Screen.drawCircle(416-x,65,2);
+    Brain.Screen.drawCircle(380-x,225,2);
+    Brain.Screen.drawCircle(380-x,215,2);
     
     //Builds side red caps
     Brain.Screen.setFillColor(vex::color::black);
-    Brain.Screen.drawCircle(339,100,6);
-    Brain.Screen.drawCircle(339,180,6);
+    Brain.Screen.drawCircle(339-x,100,6);
+    Brain.Screen.drawCircle(339-x,180,6);
     Brain.Screen.setFillColor(vex::color::red);
-    Brain.Screen.drawCircle(342,100,6);
-    Brain.Screen.drawCircle(343,100,2);
-    Brain.Screen.drawCircle(342,180,6);
-    Brain.Screen.drawCircle(343,180,2);
+    Brain.Screen.drawCircle(342-x,100,6);
+    Brain.Screen.drawCircle(343-x,100,2);
+    Brain.Screen.drawCircle(342-x,180,6);
+    Brain.Screen.drawCircle(343-x,180,2);
     
     //builds platforms
     Brain.Screen.setFillColor(vex::color::red);
     Brain.Screen.setPenWidth(0);
-    Brain.Screen.drawRectangle(300,120,40,40);
+    Brain.Screen.drawRectangle(300-x,120,40,40);
     Brain.Screen.setFillColor(vex::color::blue);
     Brain.Screen.setPenWidth(0);
-    Brain.Screen.drawRectangle(380,120,40,40);
+    Brain.Screen.drawRectangle(380-x,120,40,40);
     Brain.Screen.setFillColor(vex::color::yellow);
     Brain.Screen.setPenWidth(0);
-    Brain.Screen.drawRectangle(340,120,40,40);
+    Brain.Screen.drawRectangle(340-x,120,40,40);
         
     //places balls on platforms
     Brain.Screen.setFillColor(vex::color::yellow);
     Brain.Screen.setPenWidth(1);
     Brain.Screen.setPenColor(vex::color::black);
-    Brain.Screen.drawCircle(301,121,3);
-    Brain.Screen.drawCircle(301,159,3);
-    Brain.Screen.drawCircle(419,121,3);
-    Brain.Screen.drawCircle(419,159,3);
+    Brain.Screen.drawCircle(301-x,121,3);
+    Brain.Screen.drawCircle(301-x,159,3);
+    Brain.Screen.drawCircle(419-x,121,3);
+    Brain.Screen.drawCircle(419-x,159,3);
     
     //place edges on platforms
     Brain.Screen.setFillColor(vex::color::black);
-    Brain.Screen.drawCircle(341,121,3);
-    Brain.Screen.drawCircle(341,159,3);
-    Brain.Screen.drawCircle(379,121,3);
-    Brain.Screen.drawCircle(379,159,3);
+    Brain.Screen.drawCircle(341-x,121,3);
+    Brain.Screen.drawCircle(341-x,159,3);
+    Brain.Screen.drawCircle(379-x,121,3);
+    Brain.Screen.drawCircle(379-x,159,3);
     
     // creates inside for platforsm
     Brain.Screen.setFillColor("#666666");
     Brain.Screen.setPenWidth(0);
     Brain.Screen.setPenColor(vex::color::black);
-    Brain.Screen.drawRectangle(305,125,30,30);
-    Brain.Screen.drawRectangle(345,125,30,30);
-    Brain.Screen.drawRectangle(385,125,30,30);
+    Brain.Screen.drawRectangle(305-x,125,30,30);
+    Brain.Screen.drawRectangle(345-x,125,30,30);
+    Brain.Screen.drawRectangle(385-x,125,30,30);
  
 }
-void leftFlagToggle(bool TL, bool ML, bool BL )
+void leftFlagToggle(bool TL, bool ML, bool BL)
 {
   bool topL= TL;
   bool middleL= ML;
@@ -326,6 +330,103 @@ void rightFlagToggle(bool TR, bool MR, bool BR)
     Brain.Screen.drawRectangle(450,22,3,8);  
    }
 }
+void CapsToggle(int x, bool redFarTilt, bool redFarOpposite, bool redCloseTilt, bool redCloseOpposite, bool blueFarTilt, bool blueFarOpposite, bool blueCloseTilt, bool blueCloseOpposite)
+{
+  bool rFT= redFarTilt;
+  bool rFO = redFarOpposite;
+  bool rCT = redCloseTilt;
+  bool rCO = redCloseOpposite;
+  bool bFT = blueFarTilt;
+  bool bFO = blueFarOpposite;
+  bool bCT = blueCloseTilt;
+  bool bCO = blueCloseOpposite;
+ 
+   Brain.Screen.setPenColor(vex::color::white);
+   if(rFT==true)
+   {
+       Brain.Screen.setFillColor(vex::color::green);
+       Brain.Screen.setPenColor(vex::color::black);
+       Brain.Screen.drawCircle(342-x,180,6);
+   }
+   else
+   {
+       Brain.Screen.setFillColor(vex::color::red);
+       Brain.Screen.setPenColor(vex::color::black);
+       Brain.Screen.drawCircle(342-x,180,6);
+   }
+   if(rFO=true)
+   {
+       Brain.Screen.setFillColor(vex::color::green);
+       Brain.Screen.drawCircle(380-x,220,8);
+   }
+   else
+   {
+       Brain.Screen.setFillColor(vex::color::red);
+       Brain.Screen.drawCircle(380-x,220,8);
+    
+   }
+   if(rCT==true)
+   {
+       Brain.Screen.setFillColor(vex::color::green);
+       Brain.Screen.drawCircle(342-x,100,6);
+   }
+   else
+   {
+       Brain.Screen.setFillColor(vex::color::red);
+       Brain.Screen.drawCircle(342-x,100,6);
+   }
+   if(rCO==true)
+   {
+       Brain.Screen.setFillColor(vex::color::green);
+       Brain.Screen.drawCircle(420-x,60,8);
+       
+   }
+   else
+   {
+       Brain.Screen.setFillColor(vex::color::red);
+       Brain.Screen.drawCircle(420-x,60,8);
+   }
+    if(bCT==true)
+   {
+        Brain.Screen.setFillColor(vex::color::green);
+        Brain.Screen.drawCircle(377-x,180,6);
+   }
+   else
+   {
+       Brain.Screen.setFillColor(vex::color::blue);
+       Brain.Screen.drawCircle(377-x,180,6);
+   }
+   if(bCO==true)
+   {
+       Brain.Screen.setFillColor(vex::color:green);
+       Brain.Screen.drawCircle(340-x,220,8);
+   }
+   else
+   {
+       Brain.Screen.setFillColor(vex::color::blue);
+       Brain.Screen.drawCircle(340-x,220,8);
+    
+   }
+   if(bFT==true)
+   {
+       Brain.Screen.setFillColor(vex::color::green);
+       Brain.Screen.drawCircle(377-x,100,6);
+   }
+   else
+   {
+       Brain.Screen.setFillColor(vex::color::blue);
+       Brain.Screen.drawCircle(377-x,100,6);
+   }
+    if(bFO==true)
+   {
+       Brain.Screen.setFillColor(vex::color::green);
+       Brain.Screen.drawCircle(300-x,60,8);
+   }
+   else
+   {
+       Brain.Screen.setFillColor(vex::color::blue);
+       Brain.Screen.drawCircle(300-x,60,8);
+   }
 
 void selectionbuttons()
 {
@@ -335,33 +436,32 @@ void selectionbuttons()
     Brain.Screen.setPenColor(vex::color::black);
     
     Brain.Screen.setFillColor(vex::color::red);
-    Brain.Screen.drawRectangle(0,0,180,60);
-    Brain.Screen.drawRectangle(0,60,180,60);
+    Brain.Screen.drawRectangle(0,0,90,60);
+    Brain.Screen.drawRectangle(0,60,90,60);
     
     Brain.Screen.setFillColor(vex::color::blue);
-    Brain.Screen.drawRectangle(0,120,180,60);
-    Brain.Screen.drawRectangle(0,180,180,60);
+    Brain.Screen.drawRectangle(0,120,90,60);
+    Brain.Screen.drawRectangle(0,180,90,60);
 
     Brain.Screen.setFillColor("#b1b1b1");
     Brain.Screen.drawRectangle(180,0,60,240);
     //borders in between buttons
     Brain.Screen.setFillColor(vex::color::black);
-    Brain.Screen.drawRectangle(0,59,180,2);
-    Brain.Screen.drawRectangle(0,119,180,2);
-    Brain.Screen.drawRectangle(0,179,180,2);
+    Brain.Screen.drawRectangle(0,59,90,2);
+    Brain.Screen.drawRectangle(0,119,90,2);
+    Brain.Screen.drawRectangle(0,179,90,2);
     Brain.Screen.drawRectangle(179,0,2,240);
     
     //puts the text
     Brain.Screen.setFillColor(vex::color::red);
-    Brain.Screen.printAt(30,20,"Red Close");
-    Brain.Screen.printAt(30,80,"Red Far");
+    Brain.Screen.printAt(10,20,"Red Close");
+    Brain.Screen.printAt(10,80,"Red Far");
     Brain.Screen.setFillColor(vex::color::blue);
-    Brain.Screen.printAt(30,140,"Blue Close");
-    Brain.Screen.printAt(30,200,"Blue Far");
+    Brain.Screen.printAt(10,140,"Blue Close");
+    Brain.Screen.printAt(10,200,"Blue Far");
 }
 void picking()
 {
-    int selection = 0;
     Brain.Screen.setFont(vex::fontType::mono20);
     Brain.Screen.setPenColor(vex::color::white);
     int xpos;
@@ -385,11 +485,10 @@ void picking()
             if(xpos > 181 && xpos < 240 && ypos > 0 && ypos < 60)
             {
                 Brain.Screen.clearScreen();
-                buildoriginalscreen();
-                selectionbuttons();
-                Brain.Screen.setFillColor(vex::color::red);
-                Brain.Screen.printAt(30,20,"Red Close");
-                Brain.Screen.printAt(30,80,"Red Close Platform");
+                Brain.Screen.setFillColor(vex::color::black);
+                Brain.Screen.printAt(1,40,"Karthik:");
+                Brain.Screen.printAt(1,65,"\"That is INTENSE.\"");
+                break;
             }
             
         }
@@ -404,11 +503,10 @@ void picking()
             if(xpos > 181 && xpos < 240 && ypos > 60 && ypos < 120)
             {
                 Brain.Screen.clearScreen();
-                buildoriginalscreen();
-                selectionbuttons();
-                Brain.Screen.setFillColor(vex::color::red);
-                Brain.Screen.printAt(30,20,"Red Far Platform");
-                Brain.Screen.printAt(30,80,"Red Far");
+                Brain.Screen.setFillColor(vex::color::black);
+                Brain.Screen.printAt(1,40,"Karthik:");
+                Brain.Screen.printAt(1,65,"\"That is INTENSE.\"");
+                break;
             }
         }
         //blueclose
@@ -422,11 +520,10 @@ void picking()
             if(xpos > 181 && xpos < 240 && ypos > 120 && ypos < 180)
             {
                 Brain.Screen.clearScreen();
-                buildoriginalscreen();
-                selectionbuttons();
-                Brain.Screen.setFillColor(vex::color::blue);
-                Brain.Screen.printAt(30,140,"Blue Close");
-                Brain.Screen.printAt(30,200,"Blue Close Platform");
+                Brain.Screen.setFillColor(vex::color::black);
+                Brain.Screen.printAt(1,40,"Karthik:");
+                Brain.Screen.printAt(1,65,"\"That is INTENSE.\"");
+                break;
             }
         }
         //bluefar
@@ -440,51 +537,60 @@ void picking()
             if(xpos > 181 && xpos < 240 && ypos > 180 && ypos < 240)
             {
                 Brain.Screen.clearScreen();
-                buildoriginalscreen();
-                selectionbuttons();
-                Brain.Screen.setFillColor(vex::color::blue);
-                Brain.Screen.printAt(30,140,"Blue Far Platform");
-                Brain.Screen.printAt(30,200,"Blue Far");
-                xpos = 0;
-                ypos = 0;
-                while(selection == 0)
-                {
-                    if(Brain.Screen.pressing())
-                    {
-                        xpos = Brain.Screen.xPosition();
-                        ypos = Brain.Screen.yPosition();
-                        if(xpos > 0 && xpos < 180 && ypos > 180 && ypos < 240)
-                        {
-                            Brain.Screen.setFillColor(vex::color::green);
-                            Brain.Screen.setPenWidth(0);
-                            Brain.Screen.drawRectangle(181,180,59,60);
-                            xpos = Brain.Screen.xPosition();
-                            ypos = Brain.Screen.yPosition();
-                            if(xpos > 181 && xpos < 240 && ypos > 180 && ypos < 240)
-                            {
-                                Brain.Screen.clearScreen();
-                                Brain.Screen.printAt(1,40,"Auton Selected");
-                                selection = 1;
-                            }
-                        }
-                    }
-                }
-            }      
+                Brain.Screen.setFillColor(vex::color::black);
+                Brain.Screen.printAt(1,40,"Karthik:");
+                Brain.Screen.printAt(1,65,"\"That is INTENSE.\"");
+                break;
+            }
+        }
+      
         if(Brain.Screen.pressing() && xpos < 180)
         {
             Brain.Screen.setFillColor("#b1b1b1");
             Brain.Screen.drawRectangle(181,0,59,240);
         }
     }
+    while(1==1)
+    {
+       Brain.Screen.printAt(1,90,"Battery Capacity: %d%%",Brain.Battery.capacity());
+       Brain.Screen.printAt(1,90,"Battery Temperature: %d%%",Brain.Battery.temperature());
+       vex::task::sleep(500);
+        
+    }
 }
-}
-int main( ) 
+
+void switchingmechanism()
 {
-    buildoriginalscreen();
-    rightFlagToggle(false,false,false);
-    middleFlagToggle(0,0,0);
-    leftFlagToggle(false,false,false);
-    selectionbuttons();
-    picking();
-    return 0;
+    //build switches in order to switch between autons
+    
+    
+}
+    
+void expermientalfinalproduct()
+{
+    Brain.Screen.clearScreen("#000080");
+    buildoriginalscreen(120);
+    Brain.Screen.setFillColor(vex::color::black);
+    Brain.Screen.setPenWidth(0);
+    Brain.Screen.drawRectangle(0,0,2,240);
+    Brain.Screen.drawRectangle(0,0,2,240);
+    Brain.Screen.drawRectangle(0,0,2,240);
+    Brain.Screen.drawRectangle(0,0,2,240);
+    Brain.Screen.drawRectangle(0,0,2,240);
+    Brain.Screen.drawRectangle(0,0,2,240);
+    
+    
+}
+   
+}
+
+int main() {
+buildoriginalscreen(0);
+rightFlagToggle(false,false,false);
+middleFlagToggle(0,0,0);
+leftFlagToggle(false,false,false);
+//selectionbuttons();
+//picking();
+//expermientalfinalproduct();
+
 }
