@@ -347,12 +347,14 @@ void CapsToggle(int x, bool redFarTilt, bool redFarOpposite, bool redCloseTilt, 
        Brain.Screen.setFillColor(vex::color::green);
        Brain.Screen.setPenColor(vex::color::black);
        Brain.Screen.drawCircle(342-x,180,6);
+       Brain.Screen.drawCircle(343-x,100,2);
    }
    else
    {
        Brain.Screen.setFillColor(vex::color::red);
        Brain.Screen.setPenColor(vex::color::black);
        Brain.Screen.drawCircle(342-x,180,6);
+       Brain.Screen.drawCircle(343-x,180,2);
    }
    if(rFO=true)
    {
@@ -398,7 +400,7 @@ void CapsToggle(int x, bool redFarTilt, bool redFarOpposite, bool redCloseTilt, 
    }
    if(bCO==true)
    {
-       Brain.Screen.setFillColor(vex::color:green);
+       Brain.Screen.setFillColor(vex::color::green);
        Brain.Screen.drawCircle(340-x,220,8);
    }
    else
@@ -427,7 +429,7 @@ void CapsToggle(int x, bool redFarTilt, bool redFarOpposite, bool redCloseTilt, 
        Brain.Screen.setFillColor(vex::color::blue);
        Brain.Screen.drawCircle(300-x,60,8);
    }
-
+}
 void selectionbuttons()
 {
     //Base choosing squares
