@@ -1,4 +1,4 @@
-#include "robot-config.h";
+#include "robot-config.h"
 
 bool RCS= true; 
 bool RFS= true;
@@ -495,8 +495,10 @@ void picking()
     int selectedauton = 0;
     int xpos;
     int ypos;
-    while(selectedauton = 0)
+    while(selectedauton == 0)
     {
+        
+        
         if(Brain.Screen.pressing())//finds the position of where is Pressed
         {
             xpos = Brain.Screen.xPosition();
@@ -614,14 +616,15 @@ void picking()
                 if(RCS)
                 {
                     
-                    //Karthik place value for Red Close auton here
+                    selectedauton = 1; //red close
                 }
                 else 
                 {
+                    selectedauton = 2;
                     
                     //Karthik place value for Red Close Platform auton here
                 }
-                break;
+                
             }
             
         }
@@ -638,13 +641,16 @@ void picking()
                 Brain.Screen.clearScreen();
                 if(RFS)
                 {
+                    
+                    selectedauton = 3;
                     //Karthik place value for Red Far auton here
                 }
                 else 
                 {
+                    selectedauton = 4;
                     //Karthik place value for Red Far Platform auton here
                 }
-                break;
+                
             }
         }
         //blueclose
@@ -660,13 +666,15 @@ void picking()
                 Brain.Screen.clearScreen();
                 if(BCS)
                 {
+                    selectedauton = 5;
                     //Karthik place value for Blue Close auton here
                 }
                 else 
                 {
+                    selectedauton = 6;
                     //Karthik place value for Blue Close Platform auton here
                 }
-                break;
+                
             }
         }
         //bluefar
@@ -682,10 +690,12 @@ void picking()
                 Brain.Screen.clearScreen();
                 if(BFS)
                 {
+                    selectedauton = 7;
                     //Karthik place value for Blue Far auton here
                 }
                 else 
                 {
+                    selectedauton = 8;
                     //Karthik place value for Blue Far Platform auton here
                 }
                 break;
@@ -714,6 +724,18 @@ void expermientalfinalproduct(){
     Brain.Screen.drawRectangle(0,0,2,240);
 }
 
+void timetotest()
+{
+    while(true)
+    {
+        if (Controller.ButtonA.pressing())
+        {
+            Brain.Screen.clearScreen();
+            Brain.Screen.print("ItWorks");
+        }
+    }
+}
+
 
 int main()//change this main into the named method for the GUI
 {
@@ -724,4 +746,5 @@ leftFlagToggle(false,false,false);
 selectionbuttons();
 intialswitches();
 picking();
+    timetotest();
 }
