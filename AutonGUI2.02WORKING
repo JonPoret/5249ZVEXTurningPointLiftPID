@@ -35,7 +35,7 @@ bool BFS= true;
 void buildoriginalscreen(int x)     
 {
     //builds half the screen as the board
-    Brain.Screen.setFillColor("#7e7e7e");
+    Brain.Screen.setFillColor("#7e7e7e");;
     Brain.Screen.setPenWidth(0);
     Brain.Screen.setPenColor(vex::color::white);
     Brain.Screen.drawRectangle(240-x,0,240,240);
