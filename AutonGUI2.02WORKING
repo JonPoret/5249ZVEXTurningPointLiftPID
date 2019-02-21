@@ -522,9 +522,10 @@ void picking()
     Brain.Screen.setPenColor(vex::color::white);
     int xpos;
     int ypos;
+    allMotorsStop();
     while(true)
     {
-        allMotorsStop();
+        Brain.Screen.setPenColor(vex::color::blue);
         if(Brain.Screen.pressing())//finds the position of where is Pressed
         {
             xpos = Brain.Screen.xPosition();
@@ -798,7 +799,14 @@ void usercontrol( void ) {
     if(MainUser.ButtonA.pressing())
     {
         Brain.Screen.clearScreen();
-        Brain.Screen.print("OwO");
+        Brain.Screen.clearLine();
+        Brain.Screen.print("code is working");
+    }
+    if(MainUser.Axis3.value() > 5)
+    {
+        Brain.Screen.clearScreen();
+        Brain.Screen.clearLine();
+        Brain.Screen.print("Driver Control Definitely Works");
     }
     vex::task::sleep(20); //Sleep the task for a short amount of time to prevent wasted resources. 
   }
