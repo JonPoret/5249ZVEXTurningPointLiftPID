@@ -516,6 +516,7 @@ void intialswitches()
    Brain.Screen.setPenWidth(0);
    }
 }
+int selectedauton = 0;
 void picking()
 {
     Brain.Screen.setFont(vex::fontType::mono20);
@@ -523,7 +524,7 @@ void picking()
     int xpos;
     int ypos;
     allMotorsStop();
-    while(true)
+    while(selectedauton == 0)
     {
         Brain.Screen.setPenColor(vex::color::blue);
         if(Brain.Screen.pressing())//finds the position of where is Pressed
@@ -551,6 +552,7 @@ void picking()
             if(RCS==false && RFS==false && BCS==false && BFS==false)
             {
                Brain.Screen.clearScreen();
+               selectedauton = 9;
                //Karthik place value for Skills auton here
                break;
              }
@@ -575,6 +577,7 @@ void picking()
             if(RCS==false && RFS==false && BCS==false && BFS==false)
             {
                Brain.Screen.clearScreen();
+               selectedauton = 9;
                //Karthik place value for Skills auton here
                break;
              }
@@ -599,6 +602,7 @@ void picking()
             if(RCS==false && RFS==false && BCS==false && BFS==false)
             {
                Brain.Screen.clearScreen();
+               selectedauton = 9;
                //Karthik place value for Skills auton here
                break;
              }
@@ -642,12 +646,12 @@ void picking()
                 Brain.Screen.clearScreen();
                 if(RCS)
                 {
-                    
+                    selectedauton = 1;
                     //Karthik place value for Red Close auton here
                 }
                 else 
                 {
-                    
+                    selectedauton = 2;
                     //Karthik place value for Red Close Platform auton here
                 }
                 break;
@@ -667,10 +671,12 @@ void picking()
                 Brain.Screen.clearScreen();
                 if(RFS)
                 {
+                selectedauton = 3;
                     //Karthik place value for Red Far auton here
                 }
                 else 
                 {
+                selectedauton = 4;
                     //Karthik place value for Red Far Platform auton here
                 }
                 break;
@@ -689,10 +695,12 @@ void picking()
                 Brain.Screen.clearScreen();
                 if(BCS)
                 {
+                selectedauton = 5;
                     //Karthik place value for Blue Close auton here
                 }
                 else 
                 {
+                selectedauton = 6;
                     //Karthik place value for Blue Close Platform auton here
                 }
                 break;
@@ -711,10 +719,12 @@ void picking()
                 Brain.Screen.clearScreen();
                 if(BFS)
                 {
+                selectedauton = 7;
                     //Karthik place value for Blue Far auton here
                 }
                 else 
                 {
+                selectedauton = 8;
                     //Karthik place value for Blue Far Platform auton here
                 }
                 break;
